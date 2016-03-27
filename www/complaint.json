@@ -1,0 +1,17 @@
+{
+    "data": {
+        "text": "test",
+        "identification": "534534535",
+        "district": {
+            "value": "4",
+            "label": "4.KOZHIKODE",
+            "$$hashKey": "object:51"
+        },
+        "assembly": {
+            "value": "22",
+            "label": "22.NADAPURAM",
+            "$$hashKey": "object:88"
+        }
+    },
+    "_id": 1457891736468
+}

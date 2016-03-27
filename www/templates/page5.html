@@ -1,0 +1,49 @@
+<ion-view style="" title="ഒത്തു ചേരുക">
+    <ion-content class="has-header" scroll="false" overflow-scroll="true" padding="true">
+        <div ng-show="polling">
+        <ion-spinner icon="ripple" class="spinner-assertive"></ion-spinner>
+        </div>
+        <div ng-hide="otp.requested">
+            <div class="card">
+                <div class="item item-divider item-text-wrap">
+                    You must share your email id.
+                </div>
+                <div class="item item-text-wrap">
+                    <button class="button button-block button-positive" ng-click="facebookLogin()">Login with facebook</button>
+                </div>
+            </div>
+
+            <form style="" class="list" name="otpEmailForm"
+                  ng-submit="requestEmailOTP(otpEmailForm.$valid)"
+                  novalidate>
+                <ion-list style="">
+                    <label style="" class="item item-input">
+                        <span class="input-label">Email</span>
+                        <input type="email" name="email" placeholder="name@mail.com" ng-model="otp.data.email" required>
+                    </label>
+                </ion-list>
+                <button style="" class="button button-stable button-block ">Sign up</button>
+            </form>
+
+            <form style="" class="list" name="otpPhoneForm"
+                  ng-submit="requestPhoneOTP(otpPhoneForm.$valid)"
+                  novalidate>
+                <ion-list style="">
+                    <label style="" class="item item-input">
+                        <span class="input-label">Phone</span>
+                        <input name="phone" placeholder="0123456789" type="number" ng-model="otp.data.phone" required=""
+                               ng-minlength="10"
+                               ng-maxlength="11">
+                    </label>
+                </ion-list>
+                <button style="" class="button button-stable button-block ">Sign up</button>
+            </form>
+
+        </div>
+        <div ng-show="otp.requested">
+            <button ng-hide="polling || otp.retryDisabled"  ng-click="checkVerificationStatus(true)" style="" class="button button-stable button-block ">Manual Verification</button>
+            {{timerText}}
+            <button ng-disabled="otp.retryDisabled" ng-click="resetOTP()" style="" class="button button-royal button-block  icon-left ion-arrow-left-a" ui-sref="side-menu21.page1">വീണ്ടും തുടങ്ങുക</button>
+        </div>
+    </ion-content>
+</ion-view>

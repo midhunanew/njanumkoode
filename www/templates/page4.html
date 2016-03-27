@@ -1,0 +1,77 @@
+<ion-view style="" title="പരാതി സമർപ്പിക്കുക">
+    <ion-content class="has-header" overflow-scroll="true" padding="true">
+        <form style="" class="list" name="helpForm" ng-submit="requestHelp(helpForm.$valid, helpForm)"
+              novalidate>
+            <ion-item style="">നിങ്ങളുടെ ഫോൺ നമ്പർ *</ion-item>
+            <label style="" class="item item-input">
+                <span class="input-label"></span>
+                <input name="phone" placeholder="0123456789" type="number" ng-model="help.data.phone" required=""
+                       ng-minlength="10"
+                       ng-maxlength="11">
+            </label>
+
+            <div ng-show="helpForm.phone.$error && helpForm.$submitted" ng-messages="helpForm.phone.$error" class="alert alert-danger" role="alert">
+                <div ng-message-exp="'required'">നിങ്ങളുടെ 10 അക്ക ഫോൺ നമ്പർ മുകളിൽ എഴുതുക.</div>
+                <div ng-message-exp="['minlength', 'maxlength']">
+                    നിങ്ങളുടെ ഫോൺ നമ്പർ വീണ്ടും പരിശോധിക്കുക.
+                </div>
+            </div>
+            <ion-item style="">അതേ ഫോൺ നമ്പർ വീണ്ടും എഴുതുക</ion-item>
+            <label style="" name="dup_phone" class="item item-input">
+                <span class="input-label"></span>
+                <input placeholder="0123456789" type="number" ng-model="help.data.dup_phone" required="">
+            </label>
+            <button style="" class="button button-balanced button-block  icon-left ion-man">സഹായത്തിനായി സമർപ്പിക്കുക.
+            </button>
+        </form>
+        <form style="" class="list" name="complaintForm" ng-submit="newComplaint(complaintForm.$valid, complaintForm)"
+              novalidate>
+            <div style="">
+                <p>പരാതി സമർപ്പിക്കുന്നതിന് കൂടുതൽ സഹായം ആവശ്യമെങ്കിൽ മുകളിൽ ഫോൺ നമ്പർ എഴുതിയ ശേഷം
+                    <strong>സഹായത്തിനായി സമർപ്പിക്കുക</strong>. നിങ്ങളുടെ സ്ഥലത്തെ സന്നദ്ധസേവകന്‍ എത്രയും വേഗം നിങ്ങളെ
+                    സന്ദർശിക്കുന്നതാണ്.</p>
+            </div>
+            <ion-item style="">പരാതി *</ion-item>
+            <label style="" class="item item-input">
+                <textarea name="text" ng-model="complaint.data.text" required=""> </textarea>
+            </label>
+            <div ng-show="complaintForm.text.$error && complaintForm.$submitted" ng-messages="complaintForm.text.$error" class="alert alert-danger" role="alert">
+                <div ng-message-exp="'required'">നിങ്ങളുടെ പരാതി മുകളിൽ എഴുതുക.</div>
+            </div>
+            <ion-item style="">തിരഞ്ഞെടുപ്പ് തിരിച്ചറിയൽ കാർഡിലെ നമ്പർ *</ion-item>
+            <label style="" class="item item-input">
+                <input name="identification" placeholder="" type="text" ng-model="complaint.data.identification"
+                       required="" ng-minlength="6">
+            </label>
+            <div ng-show="complaintForm.identification.$error && complaintForm.$submitted" ng-messages="complaintForm.identification.$error" class="alert alert-danger" role="alert">
+                <div ng-message="required">നിങ്ങളെ തിരിച്ചറിയത്തിനുള്ള നമ്പർ മുകളിൽ എഴുതുക.</div>
+                <div ng-message="minlength">
+                    നിങ്ങളെ എഴുതിയ നമ്പർ വീണ്ടും പരിശോധിക്കുക.
+                </div>
+            </div>
+            <ion-item style="">ജില്ല</ion-item>
+            <label style="" class="item item-select">
+                <select name="district" ng-model="complaint.data.district"
+                        ng-options="type.label for type in districtList track by type.value" ng-change="setLAList()">
+                    <option value="">-- തിരഞ്ഞെടുക്കുക --</option>
+                </select>
+            </label>
+
+            <div ng-if="complaint.data.district">
+                <ion-item style="">നിയോജക മണ്ഡലം</ion-item>
+                <label style="" class="item item-select">
+                    <select name="assembly" ng-model="complaint.data.assembly"
+                            ng-options="type.label for type in assemblyList track by type.value">
+                        <option value="">-- തിരഞ്ഞെടുക്കുക --</option>
+                    </select>
+                </label>
+            </div>
+            <button ng-if="!modification" style="" class="button button-assertive button-block  icon-left ion-android-clipboard">പരാതി
+                സമർപ്പിക്കുക
+            </button>
+            <button ng-if="modification" style="" class="button button-energized button-block  icon-left ion-android-add-circle">പരാതി തിരുത്തുക
+            </button>
+            <button ng-click="goToHome()" style="" class="button button-royal button-block  icon-left ion-arrow-left-a" ui-sref="side-menu21.page1">വീണ്ടും തുടങ്ങുക</button>
+        </form>
+    </ion-content>
+</ion-view>

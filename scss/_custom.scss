@@ -1,0 +1,34 @@
+.alert {
+  @include display-flex();
+  @include align-items(center);
+  position: relative;
+  overflow: hidden;
+  padding: 6px 0 5px 16px;
+
+  div {
+    @include border-radius(0);
+    @include flex(1, 220px);
+    @include appearance(none);
+    margin: 0;
+    padding-right: 24px;
+    color: $assertive;
+  }
+}
+
+/*
+.animate-show {
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+*/

@@ -1,0 +1,29 @@
+<ion-side-menus style="" enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button></ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="side-menu21"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-stable">
+            <div class="title">വഴികാട്ടി</div>
+        </ion-header-bar>
+        <ion-content padding="false" class="side-menu-left has-header">
+            <ion-list style="">
+                <ion-item style="" menu-close="" ui-sref="side-menu21.page1">തുടക്കം</ion-item>
+                <ion-item style="" menu-close="" ng-click="startNew()">പരാതി സമർപ്പിക്കുക</ion-item>
+                <ion-item style="" menu-close="" ui-sref="side-menu21.page9">പരാതി തിരുത്തുക</ion-item>
+                <ion-item style="" menu-close="" ui-sref="side-menu21.page2">നടപടികൾ കാണുക</ion-item>
+                <ion-item style="" menu-close="" ui-sref="side-menu21.page10">പരാതി പിൻവലിക്കുക</ion-item>
+                <ion-item style="" menu-close="" ui-sref="side-menu21.page11">പരിഹാരം നിർദ്ദേശിക്കുക</ion-item>
+                <ion-item style="" class="item-divider">ഇനിയുമേറെ</ion-item>
+                <ion-item style="" menu-close="" ui-sref="side-menu21.page6">അറിയുക</ion-item>
+                <ion-item style="" onclick="window.open('http://strangefriend.com', '_system', 'location=yes'); return false;" href="#">പങ്കെടുക്കുക</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

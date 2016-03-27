@@ -1,0 +1,61 @@
+<ion-view style="" title="പരിഹാരം നിർദ്ദേശിക്കുക">
+    <ion-content class="has-header" overflow-scroll="true" padding="true">
+        <div ng-hide="complaint.exists">
+            <form style="" class="list animate-show" name="complaintForm" ng-submit="getComplaint(complaintForm.$valid)"
+                  novalidate>
+                <div style="">
+                    <p>
+                        <strong>പരിഹാരം നിർദ്ദേശിക്കേണ്ട പരാതി</strong>യുടെ ക്രമസംഖ്യ താഴെ എഴുതിയശേഷം സമർപ്പിക്കുക.</p>
+                </div>
+                <label style="" name="complaint" class="item item-input">
+                    <span class="input-label">ക്രമസംഖ്യ</span>
+                    <input name="complaintEntered" placeholder="00000000000" type="text" ng-model="complaint.entered"
+                           required="" ng-minlength="3"
+                           ng-maxlength="11">
+                </label>
+
+                <div ng-show="complaintForm.complaintEntered.$error && complaintForm.$submitted"
+                     ng-messages="complaintForm.complaintEntered.$error" class="alert alert-danger" role="alert">
+                    <div ng-message-exp="'required'">നടപടികൾ കാണേണ്ട പരാതിയുടെ ക്രമനമ്പർ എഴുതുക.</div>
+                    <div ng-message-exp="['minlength', 'maxlength']">
+                        എഴുതിയ പരാതിയുടെ ക്രമനമ്പർ വീണ്ടും പരിശോധിക്കുക.
+                    </div>
+                </div>
+                <button style="" class="button button-positive button-block  icon-left ion-android-bulb">പരിഹാരം
+                    നിർദ്ദേശിക്കുക
+                </button>
+            </form>
+        </div>
+        <div ng-show="complaint.exists" class="animate-show">
+            <h3 style="">പരാതി - {{complaint.data._id}}</h3>
+
+            <div style="">
+                <p>{{complaint.data.text}}
+                </p>
+                <p ng-show="complaint.data.resolvedText">
+                    <strong>{{complaint.data.resolvedText}}</strong>
+                    * ഈ പരാതി പരിഹരിക്കപ്പെട്ടതിനാൽ പുതിയ പരിഹാരം നിർദ്ദേശിക്കുവാൻ സാദ്ധ്യമല്ല !
+                </p>
+            </div>
+            <div ng-hide="complaint.data.resolvedText">
+                <form style="" class="list animate-show" name="solutionForm" ng-submit="postSolution(solutionForm.$valid,solutionForm)"
+                      novalidate>
+                        <ion-item style="">പരിഹാരം *</ion-item>
+                    <label style="" class="item item-input">
+                        <textarea name="text" ng-model="solution.data.text" required=""> </textarea>
+                    </label>
+                    <div ng-show="solutionForm.text.$error && solutionForm.$submitted" ng-messages="solutionForm.text.$error" class="alert alert-danger" role="alert">
+                        <div ng-message-exp="'required'">നിങ്ങളുടെ പരിഹാരം  മുകളിൽ എഴുതുക.</div>
+                    </div>
+
+                    <button style="" class="button button-positive button-block  icon-left ion-android-bulb">പരിഹാരം
+                        നിർദ്ദേശിക്കുക
+                    </button>
+                </form>
+            </div>
+        </div>
+        <button ng-click="goToHome()" style="" class="button button-royal button-block  icon-left ion-arrow-left-a"
+                ui-sref="side-menu21.page1">വീണ്ടും തുടങ്ങുക
+        </button>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,31 @@
+<ion-view style="" title="പരാതി തിരുത്തുക">
+    <ion-content class="has-header" overflow-scroll="true" padding="true">
+        <form style="" class="list"  name="complaintForm" ng-submit="getComplaint(complaintForm.$valid)"
+              novalidate>
+            <div style="">
+                <p>പഴയ പരാതികൾ ലഭ്യമെങ്കിൽ അവ താഴെ നിന്നും തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ
+                    <strong>പരാതിയുടെ ക്രമസംഖ്യ</strong>താഴെ എഴുതിയശേഷം പരാതി തിരുത്തുവാനായി സമർപ്പിക്കുക.</p>
+            </div>
+            <label style="" class="item item-select">
+                <span class="input-label">ക്രമസംഖ്യ</span>
+                <select name="complaintOpted" ng-model="complaint.opted" ng-change="setEntered()"
+                        ng-options="comOption for comOption in complaints">
+                    <option value="">-- തിരഞ്ഞെടുക്കുക --</option>
+                </select>
+            </label>
+            <label style="" class="item item-input">
+                <span class="input-label">ക്രമസംഖ്യ</span>
+                <input name="complaintEntered" placeholder="00000000000" type="text" ng-model="complaint.entered" required="" ng-minlength="3"
+                       ng-maxlength="11">
+            </label>
+            <div ng-show="complaintForm.complaintEntered.$error && complaintForm.$submitted" ng-messages="complaintForm.complaintEntered.$error" class="alert alert-danger" role="alert">
+                <div ng-message-exp="'required'">തിരുത്തേണ്ട പരാതിയുടെ ക്രമനമ്പർ എഴുതുക.</div>
+                <div ng-message-exp="['minlength', 'maxlength']">
+                    എഴുതിയ പരാതിയുടെ ക്രമനമ്പർ വീണ്ടും പരിശോധിക്കുക.
+                </div>
+            </div>
+            <button style="" class="button button-energized button-block  icon-left ion-android-add-circle">പരാതി തിരുത്തുക</button>
+        </form>
+        <button ng-click="goToHome()" style="" class="button button-royal button-block  icon-left ion-arrow-left-a" ui-sref="side-menu21.page1">വീണ്ടും തുടങ്ങുക</button>
+    </ion-content>
+</ion-view>

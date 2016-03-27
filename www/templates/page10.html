@@ -1,0 +1,31 @@
+<ion-view style="" title="പരാതി പിൻവലിക്കുക">
+    <ion-content class="has-header" overflow-scroll="true" padding="true">
+        <form style="" class="list"  name="complaintForm" ng-submit="promptDelete(complaintForm.$valid)"
+              novalidate>
+            <div style="">
+                <p>പഴയ പരാതികൾ ലഭ്യമെങ്കിൽ അവ താഴെ നിന്നും തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ
+                    <strong>പരാതിയുടെ ക്രമസംഖ്യ</strong>താഴെ എഴുതിയശേഷം പരാതി പിൻവലിക്കുന്നതിനായി സമർപ്പിക്കുക.</p>
+            </div>
+            <label style="" name="complaint" class="item item-select">
+                <span class="input-label">ക്രമസംഖ്യ</span>
+                <select name="complaintOpted" ng-model="complaint.opted" ng-change="setEntered()"
+                        ng-options="comOption for comOption in complaints">
+                    <option value="">-- തിരഞ്ഞെടുക്കുക --</option>
+                </select>
+            </label>
+            <label style="" name="complaint" class="item item-input">
+                <span class="input-label">ക്രമസംഖ്യ</span>
+                <input name="complaintEntered" placeholder="00000000000" type="text" ng-model="complaint.entered" required="" ng-minlength="3"
+                       ng-maxlength="11">
+            </label>
+            <div ng-show="complaintForm.complaintEntered.$error && complaintForm.$submitted" ng-messages="complaintForm.complaintEntered.$error" class="alert alert-danger" role="alert">
+                <div ng-message-exp="'required'">പിൻവലിക്കേണ്ട പരാതിയുടെ ക്രമനമ്പർ എഴുതുക.</div>
+                <div ng-message-exp="['minlength', 'maxlength']">
+                    എഴുതിയ പരാതിയുടെ ക്രമനമ്പർ വീണ്ടും പരിശോധിക്കുക.
+                </div>
+            </div>
+            <button style="" class="button button-dark button-block  icon-left ion-alert-circled">പരാതി പിൻവലിക്കുക</button>
+        </form>
+        <a style="" class="button button-royal button-block  icon-left ion-arrow-left-a" ui-sref="side-menu21.page1">വീണ്ടും തുടങ്ങുക</a>
+    </ion-content>
+</ion-view>
