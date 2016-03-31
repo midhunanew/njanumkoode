@@ -811,7 +811,7 @@ angular.module('app.controllers', [])
                     $scope.otp.type = result.data.type;
                     window.localStorage.setItem("verify", result.data.verify);
                     $rootScope.verificationPending = result.data.verify;
-                    $interval(showTimer, 1000, 10);
+                    $interval(showTimer, 1000, 30);
                     $timeout(function () {
                         $scope.otp.retryDisabled = false;
                         $scope.verifyOTPStatus();
