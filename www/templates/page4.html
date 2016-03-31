@@ -38,7 +38,7 @@
             <div ng-show="complaintForm.text.$error && complaintForm.$submitted" ng-messages="complaintForm.text.$error" class="alert alert-danger" role="alert">
                 <div ng-message-exp="'required'">നിങ്ങളുടെ പരാതി മുകളിൽ എഴുതുക.</div>
             </div>
-            <ion-item style="">തിരഞ്ഞെടുപ്പ് തിരിച്ചറിയൽ കാർഡിലെ നമ്പർ *</ion-item>
+            <ion-item class="full-text">തിരഞ്ഞെടുപ്പ് തിരിച്ചറിയൽ കാർഡിലെ നമ്പർ *</ion-item>
             <label style="" class="item item-input">
                 <input name="identification" placeholder="" type="text" ng-model="complaint.data.identification"
                        required="" ng-minlength="6">

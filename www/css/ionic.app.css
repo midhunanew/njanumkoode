@@ -9120,6 +9120,10 @@ a.button {
     padding-right: 24px;
     color: #ef473a; }
 
+.full-text, a.full-text {
+  overflow: visible;
+  white-space: normal; }
+
 /*
 .animate-show {
   line-height: 20px;
