@@ -9,3 +9,4 @@ plugins/
 *.log
 resources/android/
 resources/ios/
+www/lib/ionic/scss/
