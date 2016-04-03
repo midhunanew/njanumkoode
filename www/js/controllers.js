@@ -882,7 +882,7 @@ angular.module('app.controllers', [])
                     );
                 }, function (error) {
                     displayFactory.hideLoading();
-                    displayFactory.showAlert("ഖേദിക്കുന്നു", error);
+                    displayFactory.showAlert("ഖേദിക്കുന്നു", error.message);
                 });
             };
 
