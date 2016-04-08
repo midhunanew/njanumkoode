@@ -715,7 +715,7 @@ angular.module('app.controllers', [])
                     type: "phone" // | "email"
                 };
                 $scope.polling = false;
-                $scope.timerText = "puthiya number labhikkaanaayi veendum thudanguvaan alppam kshamikkuka";
+                $scope.timerText = "പുതിയ നമ്പർ ലഭിക്കുന്നതിനായ്  വീണ്ടും തുടങ്ങാൻ അല്പ്പം ക്ഷമിക്കുക";
                 $rootScope.verificationPending = false;
             };
 
